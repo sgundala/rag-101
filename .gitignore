@@ -1,0 +1,15 @@
+# Secrets
+.env
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+
+# Virtual environments
+.venv
+
+# The vector store — built by `uv run ingest.py`, never committed
+store/
+
+# macOS
+.DS_Store

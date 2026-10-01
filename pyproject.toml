@@ -1,0 +1,24 @@
+# ============================================================
+# Project definition. uv reads this file.
+#
+#   uv sync                     install everything below
+#   uv run ingest.py --show     OFFLINE: build the index, narrated
+#   uv run ask.py "..." --show  ONLINE: answer a question, narrated
+#
+# ============================================================
+[project]
+name = "rag101"
+version = "0.1.0"
+description = "Week 3 Day 1 — RAG from first principles, one file per step"
+requires-python = ">=3.10"
+dependencies = [
+    "sentence-transformers>=3.0",  # the embedding model (step 4)
+    "numpy>=1.24",                 # the local vector store (step 5)
+    "pypdf>=4.0",                  # so you can drop PDFs into docs/ (step 1)
+    "python-dotenv>=1.0",          # loads .env
+    "litellm>=1.50",               # step 8 — one interface, any LLM provider
+]
+
+[project.optional-dependencies]
+# Only needed if you switch STORE_BACKEND to "pgvector" in config.py.
+pgvector = ["psycopg[binary]>=3.1", "pgvector>=0.3"]
